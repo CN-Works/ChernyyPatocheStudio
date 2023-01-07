@@ -11,20 +11,6 @@ translate = {
 -- Patoche Studio
 StudioControlRoom = vec3(-244.4,212.5,92.1)
 
-StudioVariant = {
-	["jeu1"] = {name = "Talk Show"},
-	["jeu2"] = {name = "Quizz"},
-	["jeu3"] = {name = "Stand Up"},
-	["jeu4"] = {name = "Gouvernement"},
-	["jeu5"] = {name = "Music"},
-	["jeu6"] = {name = "Weazel"},
-	["jeu7"] = {name = "MMA"},
-	["jeu8"] = {name = "TalkToYou"},
-	["jeu9"] = {name = "Talent"},
-	["jeu10"] = {name = "Big Quizz"}
-}
-
-
 entitySet = {
 	["jeu1"] = {name = "Talk Show"},
 	["jeu2"] = {name = "Quizz"},
