@@ -1,7 +1,8 @@
 # ChernyyPatocheStudio
 
 **Preview**
-\n
+
+
 ![image](https://user-images.githubusercontent.com/92865037/211126863-2a04ff40-7c03-40f0-98e1-683236ceaf62.png)
 
 
