@@ -1,4 +1,5 @@
-# ChernyyPatocheStudio
+<div align='center'><h1>ChernyyPatocheStudio</h3></div>
+<br>
 *A simple Map manager for Patoche studio, foked and optimised by ChernyyWorks. (ChernyyOrel#1074)*
 
 ## Preview
