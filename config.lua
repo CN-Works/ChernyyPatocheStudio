@@ -1,4 +1,5 @@
-translate = {
+-- French
+--[[translate = {
     ["PressToOpenMenu"] = "Appuie sur ~INPUT_CONTEXT~ pour gérer la scène",
     ["MenuTitle"] = "Régie",
     ["Scene"] = "Scène",
@@ -6,6 +7,25 @@ translate = {
     ["ChangeSceneTo"] = "Change la scène en",
     ["PressBuzzer"] = "Appuie sur ~INPUT_CONTEXT~ pour buzzer",
     ["ResetBuzzer"] = "Appuie sur ~INPUT_CONTEXT~ pour réinitialiser le buzzer",
+}]]--
+-- English
+translate = {
+    ["PressToOpenMenu"] = "Press ~INPUT_CONTEXT~ to edit the stage",
+    ["MenuTitle"] = "",
+    ["Scene"] = "Stage",
+    ["Scenes"] = "Stages",
+    ["ChangeSceneTo"] = "Change to",
+    ["PressBuzzer"] = "Press ~INPUT_CONTEXT~ to press the buzzer",
+    ["ResetBuzzer"] = "Press ~INPUT_CONTEXT~ to reset the buzzer",
+}
+
+-- r,g,b also see https://colorhunt.co
+marker_color = {
+    controlroom = {210, 0, 26},
+    masterbuzz = {127, 22, 127},
+    quizzbuzz = {245, 110, 179},
+	nextbuzz = {210, 0, 26},
+	resetbuzz= {255, 222, 0},
 }
 
 -- Patoche Studio
@@ -123,14 +143,14 @@ Quizz2 = {
 		textureSlot = "buzzeractuel7",
 	},
 	["buzz8"] = {
-		coords = { x = -262.48733520508, y = 213.1934967041,z = 92.079132080078,h = 307.41189575195},
+		coords = { x = -262.48733520508, y = 213.1934967041,z = 92.379132080078,h = 307.41189575195},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge8",
 		textureVariation2 = "buzzervert8",
 		textureSlot = "buzzeractuel8",
 	},
 	["buzz9"] = {
-		coords = { x = -263.23776245117, y = 214.29383850098,z = 92.079132080078,h = 304.71621704102},
+		coords = { x = -263.23776245117, y = 214.29383850098,z = 92.379132080078,h = 304.71621704102},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge9",
 		textureVariation2 = "buzzervert9",
