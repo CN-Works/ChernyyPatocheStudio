@@ -16,7 +16,7 @@
 ## Translation
 *- English and French by default, but can be changed in config.lua*
 
-## Dependecy
+## Dependency
 *- RageUix by @Florian-1801 (already installed in "src" folder)*
 
 *- ox_lib (https://github.com/overextended/ox_lib)*
