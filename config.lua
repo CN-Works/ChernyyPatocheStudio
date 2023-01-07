@@ -1,4 +1,5 @@
-translate = {
+-- French
+--[[translate = {
     ["PressToOpenMenu"] = "Appuie sur ~INPUT_CONTEXT~ pour gérer la scène",
     ["MenuTitle"] = "Régie",
     ["Scene"] = "Scène",
@@ -6,6 +7,16 @@ translate = {
     ["ChangeSceneTo"] = "Change la scène en",
     ["PressBuzzer"] = "Appuie sur ~INPUT_CONTEXT~ pour buzzer",
     ["ResetBuzzer"] = "Appuie sur ~INPUT_CONTEXT~ pour réinitialiser le buzzer",
+}]]--
+-- English
+translate = {
+    ["PressToOpenMenu"] = "Press ~INPUT_CONTEXT~ to edit the stage",
+    ["MenuTitle"] = "Control Room",
+    ["Scene"] = "Stage",
+    ["Scenes"] = "Stages",
+    ["ChangeSceneTo"] = "Change to",
+    ["PressBuzzer"] = "Press ~INPUT_CONTEXT~ to press the buzzer",
+    ["ResetBuzzer"] = "Press ~INPUT_CONTEXT~ to reset the buzzer",
 }
 
 -- Patoche Studio
