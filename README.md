@@ -6,6 +6,8 @@
 ![image](https://user-images.githubusercontent.com/92865037/211126863-2a04ff40-7c03-40f0-98e1-683236ceaf62.png)
 ![image](https://user-images.githubusercontent.com/92865037/211126992-ed0b6307-6359-4434-99a4-e076bcc186fe.png)
 
+*Translation :*
+- French by default but can be changed in config.lua
 
 *Dependecy :*
 - RageUix (already installed in "src" folder)
