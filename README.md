@@ -1,7 +1,7 @@
 <div align='center'><h1>ChernyyPatocheStudio</h3></div>
 <br>
 
-**A simple ingame map-manager for Patoche studio, foked and optimized by ChernyyWorks. (ChernyyOrel#1074)**
+**A simple ingame map-manager for Patoche studio, optimized by ChernyyWorks. (ChernyyOrel#1074)**
 
 ## Preview
 ![image](https://user-images.githubusercontent.com/92865037/211143539-b33e7372-05b3-41ab-91e2-42681bed27cf.png)
