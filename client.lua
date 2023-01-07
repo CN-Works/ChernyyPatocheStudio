@@ -108,7 +108,7 @@ end
 
 -- Big Quizz Scene
 for k,v in pairs(Quizz2) do
-	local map_bigquizzpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 4, {})
+	local map_bigquizzpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 5, {})
 
 	function map_bigquizzpoint:nearby()
 		if actualinterior == "jeu10" then
@@ -137,7 +137,7 @@ end
 
 -- Talent Scene
 for k,v in pairs(Talent) do
-	local map_talentpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 4, {})
+	local map_talentpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 3, {})
 
 	function map_talentpoint:nearby()
 		if actualinterior == "jeu9" then
