@@ -12,7 +12,7 @@
 ## Dependecy :
 *- RageUix by @Florian-1801 (already installed in "src" folder)*
 
-*- ox_lib*
+*- ox_lib ![link](https://github.com/overextended/ox_lib)*
 
 ## Installation :
 *- Drag and drop the folder into your resource folder*
