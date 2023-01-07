@@ -14,7 +14,7 @@
 
 
 ## Translation
-*- French by default but can be changed in config.lua*
+*- English and French by default, but can be changed in config.lua*
 
 ## Dependecy
 *- RageUix by @Florian-1801 (already installed in "src" folder)*
