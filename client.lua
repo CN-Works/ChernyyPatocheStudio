@@ -65,15 +65,6 @@ end
 -- Control Room / based by default in vec3(-244.4,212.5,92.1)
 local cr_point = lib.points.new(StudioControlRoom, 5, {})
 
--- r,g,b also see https://colorhunt.co
-local marker_color = {
-    controlroom = {210, 0, 26},
-    masterbuzz = {127, 22, 127},
-    quizzbuzz = {245, 110, 179},
-	nextbuzz = {210, 0, 26},
-	resetbuzz= {255, 222, 0},
-}
-
 -- Controll Room Loop
 function cr_point:nearby()
     Citizen.InvokeNative(0x28477EC23D892089,25, self.coords.x, self.coords.y, self.coords.z-0.96, vec4(0.0, 0.0, 0.0, 0.0), 180.0, 0.0, vec3(1.0, 1.0, 1.0), marker_color.controlroom[1], marker_color.controlroom[2], marker_color.controlroom[3],255, false, true, 2, nil, nil, false)
