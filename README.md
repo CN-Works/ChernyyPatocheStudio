@@ -10,7 +10,8 @@
 *- French by default but can be changed in config.lua*
 
 ## Dependecy :
-*- RageUix (already installed in "src" folder)*
+*- RageUix by @Florian-1801 (already installed in "src" folder)*
+
 *- ox_lib*
 
 ## Installation :
