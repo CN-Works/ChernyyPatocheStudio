@@ -18,4 +18,5 @@
 
 ## Installation :
 *- Drag and drop the folder into your resource folder*
+
 *- start the resource in your server.cfg !*
