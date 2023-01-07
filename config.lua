@@ -19,6 +19,15 @@ translate = {
     ["ResetBuzzer"] = "Press ~INPUT_CONTEXT~ to reset the buzzer",
 }
 
+-- r,g,b also see https://colorhunt.co
+local marker_color = {
+    controlroom = {210, 0, 26},
+    masterbuzz = {127, 22, 127},
+    quizzbuzz = {245, 110, 179},
+	nextbuzz = {210, 0, 26},
+	resetbuzz= {255, 222, 0},
+}
+
 -- Patoche Studio
 StudioControlRoom = vec3(-244.4,212.5,92.1)
 
