@@ -1,4 +1,4 @@
-
+-- UI-Tool
 function ShowHelpNotification(msg, thisFrame, beep, duration)
     AddTextEntry("cn_core:helpnotif", msg)
 
@@ -13,14 +13,49 @@ function ShowHelpNotification(msg, thisFrame, beep, duration)
     end
 end
 
+-- Buzzer Animation
+local function PlayBuzzerAnim()
+	local dict = "anim@am_hold_up@male"
+	local animname = "shoplift_mid"
+	RequestAnimDict(dict)
+	while not HasAnimDictLoaded(dict) do
+		Citizen.Wait(0)
+	end
+	TaskPlayAnim(PlayerPedId(), dict, animname, 8.0, -8.0, 1250, 49, 0, 0, 0, 0)
+end
+
+-- Camera Reset Buzzer Animation
+local function PlayResetBuzzerAnim()
+	local dict = "gestures@f@standing@casual"
+	local animname = "gesture_point"
+	RequestAnimDict(dict)
+	while not HasAnimDictLoaded(dict) do
+		Citizen.Wait(0)
+	end
+	TaskPlayAnim(PlayerPedId(), dict, animname, 8.0, -8.0, 1000, 49, 0, 0, 0, 0)
+end
+
+-- Classic Reset Buzzer Anim
+local function PlayResetBuzzerAnim2()
+	local dict = "gestures@f@standing@casual"
+	local animname = "gesture_hand_down"
+	RequestAnimDict(dict)
+	while not HasAnimDictLoaded(dict) do
+		Citizen.Wait(0)
+	end
+	TaskPlayAnim(PlayerPedId(), dict, animname, 8.0, -8.0, 1000, 49, 0, 0, 0, 0)
+end
+
 local PatocheControlRoom = RageUI.CreateMenu(translate["MenuTitle"], translate["Scenes"], nil, nil, "rageui_banner", "banner_patoche")
 PatocheControlRoom.EnableMouse = false;
 
 -- Very Important | Do not touch this position
 local centerpos = vec(-257.0,216.2,91.8)
+
 if not IsDuplicityVersion() then --(Client Side)
 	interiorID =  GetInteriorAtCoords(centerpos)
 end
+
 local actualinterior = nil
 local InteriorWait = 5000
 local varara = 0
@@ -51,6 +86,12 @@ function RageUI.PoolMenus:ControlMenu()
         if #(GetEntityCoords(PlayerPedId())-StudioControlRoom) > 1.3 then
             Items:CloseAllMenu()
         end
+		Items:AddButton(translate["ResetToDefault"], nil, { IsDisabled = false, RightLabel = "" }, function(onSelected)
+			if (onSelected) then
+				TriggerServerEvent("Studio:ChangeEntitySet", "default")
+			end
+		end)
+		Items:AddLine(255, 0, 0)
         for k,v in pairs(entitySet) do
             Items:AddButton(v.name, tostring(translate["ChangeSceneTo"].." ~o~"..v.name.." ~s~!"), { IsDisabled = false, RightLabel = "→" }, function(onSelected)
                 if (onSelected) then
@@ -63,7 +104,7 @@ function RageUI.PoolMenus:ControlMenu()
 end
 
 -- Control Room / based by default in vec3(-244.4,212.5,92.1)
-local cr_point = lib.points.new(StudioControlRoom, 5, {})
+local cr_point = lib.points.new(StudioControlRoom, 4, {})
 
 -- Controll Room Loop
 function cr_point:nearby()
@@ -79,25 +120,34 @@ end
 
 -- Quizz Scene
 for k,v in pairs(Quizz) do
-	local map_quizzpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 4, {})
+	local map_quizzpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 2, {})
 
 	function map_quizzpoint:nearby()
 		if actualinterior == "jeu2" then
 			if k == "MasterBuzz" then
-				Citizen.InvokeNative(0x28477EC23D892089,25, self.coords.x, self.coords.y, self.coords.z-0.96, vec4(0.0, 0.0, 0.0, 0.0), 180.0, 0.0, vec3(0.8, 0.8, 0.8), marker_color.masterbuzz[1], marker_color.masterbuzz[2], marker_color.masterbuzz[3],255, false, true, 2, nil, nil, false)
+				Citizen.InvokeNative(0x28477EC23D892089,0, self.coords.x, self.coords.y, self.coords.z, vec4(0.0, 0.0, 0.0, 0.0), 0.0, 0.0, vec3(0.2, 0.2, 0.2), marker_color.masterbuzz[1], marker_color.masterbuzz[2], marker_color.masterbuzz[3],255, false, true, 2, nil, nil, false)
 				if self.currentDistance < 0.8 then
 					ShowHelpNotification(translate["ResetBuzzer"])
 					if IsControlJustReleased(0, 51) then
+						SetEntityHeading(PlayerPedId(),40.0)
+						Citizen.Wait(100)
+						PlayResetBuzzerAnim2()
 						TriggerServerEvent("Studio:ResetBuzzer")
 						Citizen.Wait(250)
 					end
 				end
 			else
-				Citizen.InvokeNative(0x28477EC23D892089,25, self.coords.x, self.coords.y, self.coords.z-0.96, vec4(0.0, 0.0, 0.0, 0.0), 180.0, 0.0, vec3(0.8, 0.8, 0.8), marker_color.quizzbuzz[1], marker_color.quizzbuzz[2], marker_color.quizzbuzz[3],255, false, true, 2, nil, nil, false)
-				if self.currentDistance < 0.5 then
+				if self.currentDistance < 0.6 then
+					Citizen.InvokeNative(0x28477EC23D892089,0, self.coords.x, self.coords.y, self.coords.z+0.3, vec4(0.0, 0.0, 0.0, 0.0), 0.0, 0.0, vec3(0.2, 0.2, 0.2), marker_color.quizzbuzz[1], marker_color.quizzbuzz[2], marker_color.quizzbuzz[3],255, false, true, 2, nil, nil, false)
+				end
+				if self.currentDistance < 0.6 then
 					ShowHelpNotification(translate["PressBuzzer"])
 					if IsControlJustReleased(0, 51) then
+						SetEntityHeading(PlayerPedId(),308.0)
+						Citizen.Wait(100)
+						PlayBuzzerAnim()
 						TriggerServerEvent("Studio:PushBuzzer", k)
+						PlayBuzzerAnim()
 						Citizen.Wait(250)
 					end
 				end
@@ -108,25 +158,34 @@ end
 
 -- Big Quizz Scene
 for k,v in pairs(Quizz2) do
-	local map_bigquizzpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 5, {})
+	local map_bigquizzpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 2, {})
 
 	function map_bigquizzpoint:nearby()
 		if actualinterior == "jeu10" then
 			if k == "MasterBuzz" then
-				Citizen.InvokeNative(0x28477EC23D892089,25, self.coords.x, self.coords.y, self.coords.z-0.96, vec4(0.0, 0.0, 0.0, 0.0), 180.0, 0.0, vec3(0.8, 0.8, 0.8), marker_color.masterbuzz[1], marker_color.masterbuzz[2], marker_color.masterbuzz[3],255, false, true, 2, nil, nil, false)
+				Citizen.InvokeNative(0x28477EC23D892089,0, self.coords.x, self.coords.y, self.coords.z, vec4(0.0, 0.0, 0.0, 0.0), 0.0, 0.0, vec3(0.2, 0.2, 0.2), marker_color.masterbuzz[1], marker_color.masterbuzz[2], marker_color.masterbuzz[3],255, false, true, 2, nil, nil, false)
 				if self.currentDistance < 0.8 then
 					ShowHelpNotification(translate["ResetBuzzer"])
 					if IsControlJustReleased(0, 51) then
+						SetEntityHeading(PlayerPedId(),50.0)
+						Citizen.Wait(100)
+						PlayResetBuzzerAnim2()
 						TriggerServerEvent("Studio:ResetBuzzer")
 						Citizen.Wait(250)
 					end
 				end
 			else
-				Citizen.InvokeNative(0x28477EC23D892089,25, self.coords.x, self.coords.y, self.coords.z-0.96, vec4(0.0, 0.0, 0.0, 0.0), 180.0, 0.0, vec3(0.8, 0.8, 0.8), marker_color.quizzbuzz[1], marker_color.quizzbuzz[2], marker_color.quizzbuzz[3],255, false, true, 2, nil, nil, false)
-				if self.currentDistance < 0.5 then
+				if self.currentDistance < 0.7 then
+					Citizen.InvokeNative(0x28477EC23D892089,0, self.coords.x, self.coords.y, self.coords.z+0.5, vec4(0.0, 0.0, 0.0, 0.0), 0.0, 0.0, vec3(0.2, 0.2, 0.2), marker_color.quizzbuzz[1], marker_color.quizzbuzz[2], marker_color.quizzbuzz[3],255, false, true, 2, nil, nil, false)
+				end
+				if self.currentDistance < 0.55 then
 					ShowHelpNotification(translate["PressBuzzer"])
 					if IsControlJustReleased(0, 51) then
+						SetEntityHeading(PlayerPedId(),303.0)
+						Citizen.Wait(100)
+						PlayBuzzerAnim()
 						TriggerServerEvent("Studio:PushBuzzer", k)
+						PlayBuzzerAnim()
 						Citizen.Wait(250)
 					end
 				end
@@ -137,25 +196,33 @@ end
 
 -- Talent Scene
 for k,v in pairs(Talent) do
-	local map_talentpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 3, {})
+	local map_talentpoint = lib.points.new(vec3(v.coords.x,v.coords.y,v.coords.z), 1.4, {})
 
 	function map_talentpoint:nearby()
 		if actualinterior == "jeu9" then
 			if k == "Reset" then
-				Citizen.InvokeNative(0x28477EC23D892089,25, self.coords.x, self.coords.y, self.coords.z-0.96, vec4(0.0, 0.0, 0.0, 0.0), 180.0, 0.0, vec3(0.8, 0.8, 0.8), marker_color.resetbuzz[1], marker_color.resetbuzz[2], marker_color.resetbuzz[3],255, false, true, 2, nil, nil, false)
-				if self.currentDistance < 0.8 then
+				Citizen.InvokeNative(0x28477EC23D892089,0, self.coords.x, self.coords.y, self.coords.z+0.6, vec4(0.0, 0.0, 0.0, 0.0), 0.0, 0.0, vec3(0.4, 0.4, 0.4), marker_color.resetbuzz[1], marker_color.resetbuzz[2], marker_color.resetbuzz[3],255, false, true, 2, nil, nil, false)
+				if self.currentDistance < 1.2 then
 					ShowHelpNotification(translate["ResetBuzzer"])
 					if IsControlJustReleased(0, 51) then
+						SetEntityHeading(PlayerPedId(),135.0)
+						Citizen.Wait(100)
+						PlayResetBuzzerAnim()
 						TriggerServerEvent("Studio:ResetBuzzer")
 						Citizen.Wait(250)
 					end
 				end
 			else
-				Citizen.InvokeNative(0x28477EC23D892089,25, self.coords.x, self.coords.y, self.coords.z-0.96, vec4(0.0, 0.0, 0.0, 0.0), 180.0, 0.0, vec3(0.8, 0.8, 0.8), marker_color.nextbuzz[1], marker_color.nextbuzz[2], marker_color.nextbuzz[3],255, false, true, 2, nil, nil, false)
-				if self.currentDistance < 0.5 then
+				if self.currentDistance < 1.0 then
+					Citizen.InvokeNative(0x28477EC23D892089,0, self.coords.x, self.coords.y, self.coords.z+0.3, vec4(0.0, 0.0, 0.0, 0.0), 0.0, 0.0, vec3(0.2, 0.2, 0.2), marker_color.nextbuzz[1], marker_color.nextbuzz[2], marker_color.nextbuzz[3],255, false, true, 2, nil, nil, false)
+				end
+				if self.currentDistance < 0.8 then
 					ShowHelpNotification(translate["PressBuzzer"])
 					if IsControlJustReleased(0, 51) then
+						SetEntityHeading(PlayerPedId(),180.0)
+						Citizen.Wait(100)
 						TriggerServerEvent("Studio:PushTalentBuzzer", k)
+						PlayBuzzerAnim()
 						Citizen.Wait(250)
 					end
 				end
@@ -166,8 +233,7 @@ end
 
 
 
--- Functions And Events (I didn't change anything there)
-
+-- Events (I didn't change anything there, not even the name so feel free to use !)
 RegisterNetEvent('Studio:SendEntitySet', function(set)
 	for k,v in pairs(entitySet) do
 		if k==set then
@@ -240,6 +306,7 @@ RegisterNetEvent('Studio:SendBuzzerState', function(idx)
 	end
 end)
 
+
 RegisterNetEvent('Studio:SendResetBuzzer', function()
 	if IsInteriorEntitySetActive(interiorID, "jeu2") then
 		for k,v in pairs(Quizz) do
@@ -274,6 +341,17 @@ RegisterNetEvent('Studio:SendResetBuzzer', function()
 	end
 end)
 
+-- Just to be sure, don't forget to tell your player about this command !
+RegisterCommand("refreshstudio",function()
+	-- Just to be sure the player is near the studio before doing any server-request.
+	if #(GetEntityCoords(PlayerPedId())-centerpos) < 30 then
+		TriggerServerEvent("Studio:AskForEntitySet")
+		TriggerServerEvent("Studio:AskForBuzzer")
+	end
+end)
+
+
+
 --RegisterCommand("+PlaySound", function(source, args, fullCommand)
 --	--PlaySound(5,
 --	print("sound")
@@ -295,3 +373,8 @@ end)
 -- RequestScriptAudioBank("GTAO_APT_DOOR_DOWNSTAIRS_GLASS_SOUNDS", false, -1)
 -- LoadStream("Truck_Ramp_Scrape", "BIG_SCORE_3A_SOUNDS")
 -- RequestScriptAudioBank("BIG_SCORE_TRUCK_RAMP",false,0)
+
+
+-----------------------------------------------------
+
+-- If you have any questions --> ChernyyOrel#1074

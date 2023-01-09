@@ -1,5 +1,5 @@
 
-local lastSet = "Default"
+local lastSet = default_studio
 RegisterServerEvent('Studio:ChangeEntitySet', function(data)
 	lastSet = data
 	TriggerClientEvent("Studio:SendEntitySet", -1, data)
@@ -20,9 +20,6 @@ RegisterServerEvent('Studio:PushBuzzer', function(data)
 	if buzzerReseted then
 		buzzerReseted = false
 		lastbuzzer = data
-		if showPrint then
-			print("Send push")
-		end
 		TriggerClientEvent("Studio:SendBuzzer", -1, data)
 	end
 end)

@@ -7,6 +7,7 @@
     ["ChangeSceneTo"] = "Change la scène en",
     ["PressBuzzer"] = "Appuie sur ~INPUT_CONTEXT~ pour buzzer",
     ["ResetBuzzer"] = "Appuie sur ~INPUT_CONTEXT~ pour réinitialiser le buzzer",
+	["ResetToDefault"] = "Par défaut",
 }]]--
 -- English
 translate = {
@@ -17,6 +18,7 @@ translate = {
     ["ChangeSceneTo"] = "Change to",
     ["PressBuzzer"] = "Press ~INPUT_CONTEXT~ to press the buzzer",
     ["ResetBuzzer"] = "Press ~INPUT_CONTEXT~ to reset the buzzer",
+	["ResetToDefault"] = "Reset",
 }
 
 -- r,g,b also see https://colorhunt.co
@@ -28,8 +30,13 @@ marker_color = {
 	resetbuzz= {255, 222, 0},
 }
 
--- Patoche Studio
+-- Control room / Menu position
 StudioControlRoom = vec3(-244.4,212.5,92.1)
+
+default_studio = "default"
+
+-- Studio data :
+-- Some positions were edited to fit with in game markers. (Only positions, nothing more)
 
 entitySet = {
 	["jeu1"] = {name = "Talk Show"},
@@ -44,10 +51,9 @@ entitySet = {
 	["jeu10"] = {name = "Big Quizz"},
 }
 
-
 Quizz = {
 	["MasterBuzz"] = {
-		coords = { x = -256.58120727539, y = 214.08918762207, z = 92.057395935059, h = 39.836688995361},
+		coords = {x=-256.9,y=214.319,z=92.467},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge4",
 		textureVariation2 = "buzzervert4",
@@ -55,28 +61,28 @@ Quizz = {
 	},
 	
 	["buzz1"] = {
-		coords = { x = -260.02914428711, y = 212.49822998047, z = 92.057395935059, h = 309.86529541016},
+		coords = {x=-259.775,y=212.811,z=92.097},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge1",
 		textureVariation2 = "buzzervert1",
 		textureSlot = "buzzeractuel1",
 	},
 	["buzz2"] = {
-		coords = { x = -260.91989135742, y = 213.36994934082, z = 92.057395935059, h = 313.39447021484},
+		coords = {x=-260.631,y=213.679,z=92.097},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge2",
 		textureVariation2 = "buzzervert2",
 		textureSlot = "buzzeractuel2",
 	},
 	["buzz3"] = {
-		coords = { x = -261.69100952148, y = 214.24423217773, z = 92.057395935059, h = 305.81628417969},
+		coords = {x=-261.417,y=214.498,z=92.097},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge3",
 		textureVariation2 = "buzzervert3",
 		textureSlot = "buzzeractuel3",
 	},
 	["buzz4"] = {
-		coords = { x = -262.57553100586, y = 215.0906829834,z = 92.057395935059,h = 307.74066162109},
+		coords ={x=-262.286,y=215.335,z=92.097},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge4",
 		textureVariation2 = "buzzervert4",
@@ -86,7 +92,7 @@ Quizz = {
 
 Quizz2 = {
 	["MasterBuzz"] = {
-		coords = { x = -256.58120727539, y = 214.08918762207, z = 92.057395935059, h = 39.836688995361},
+		coords = {x=-256.9,y=214.319,z=92.467},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge4",
 		textureVariation2 = "buzzervert4",
@@ -94,98 +100,98 @@ Quizz2 = {
 	},
 	
 	["buzz1"] = {
-		coords = { x = -259.69854736328, y = 211.29299926758, z = 92.079132080078, h = 302.20388793945},
+		coords = {x=-259.397,y=211.525,z=92.059},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge1",
 		textureVariation2 = "buzzervert1",
 		textureSlot = "buzzeractuel1",
 	},
 	["buzz2"] = {
-		coords = { x = -260.41348266602, y = 212.33827209473, z = 92.079132080078, h = 301.7995300293},
+		coords = {x=-260.114,y=212.586,z=92.059},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge2",
 		textureVariation2 = "buzzervert2",
 		textureSlot = "buzzeractuel2",
 	},
 	["buzz3"] = {
-		coords = { x = -261.13836669922, y = 213.3796081543, z = 92.079132080078, h = 302.95327758789},
+		coords = {x=-260.811,y=213.626,z=92.059},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge3",
 		textureVariation2 = "buzzervert3",
 		textureSlot = "buzzeractuel3",
 	},
 	["buzz4"] = {
-		coords = { x = -261.85028076172, y = 214.47242736816,z = 92.079132080078,h = 301.13247680664},
+		coords = {x=-261.548,y=214.709,z=92.059},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge4",
 		textureVariation2 = "buzzervert4",
 		textureSlot = "buzzeractuel4",
 	},
 	["buzz5"] = {
-		coords = { x = -262.53317260742, y = 215.51406860352,z = 92.079132080078,h = 301.04290771484},
+		coords = {x=-262.265,y=215.762,z=92.059},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge5",
 		textureVariation2 = "buzzervert5",
 		textureSlot = "buzzeractuel5",
 	},
 	["buzz6"] = {
-		coords = { x = -261.13287353516, y = 211.14859008789,z = 92.319351196289,h = 296.70172119141},
+		coords = {x=-260.8,y=211.33,z=92.369},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge6",
 		textureVariation2 = "buzzervert6",
 		textureSlot = "buzzeractuel6",
 	},
 	["buzz7"] = {
-		coords = { x = -261.89526367188, y = 212.13771057129,z = 92.319351196289,h = 299.853515625},
+		coords = {x=-261.526,y=212.41,z=92.369},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge7",
 		textureVariation2 = "buzzervert7",
 		textureSlot = "buzzeractuel7",
 	},
 	["buzz8"] = {
-		coords = { x = -262.48733520508, y = 213.1934967041,z = 92.379132080078,h = 307.41189575195},
+		coords = {x=-262.231,y=213.469,z=92.369},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge8",
 		textureVariation2 = "buzzervert8",
 		textureSlot = "buzzeractuel8",
 	},
 	["buzz9"] = {
-		coords = { x = -263.23776245117, y = 214.29383850098,z = 92.379132080078,h = 304.71621704102},
+		coords = {x=-262.968,y=214.563,z=92.369},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge9",
 		textureVariation2 = "buzzervert9",
 		textureSlot = "buzzeractuel9",
 	},
 	["buzz10"] = {
-		coords = { x = -261.6008605957, y = 209.85580444336,z = 92.559593200684,h = 308.32135009766},
+		coords = {x=-261.327,y=210.118,z=92.59},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge10",
 		textureVariation2 = "buzzervert10",
 		textureSlot = "buzzeractuel10",
 	},
 	["buzz11"] = {
-		coords = { x = -262.43273925781, y = 211.07948303223,z = 92.559593200684,h = 302.05151367188},
+		coords = {x=-262.11,y=211.276,z=92.59},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge11",
 		textureVariation2 = "buzzervert11",
 		textureSlot = "buzzeractuel11",
 	},
 	["buzz12"] = {
-		coords = { x = -263.07513427734, y = 212.05271911621,z = 92.559669494629,h = 304.30322265625},
+		coords = {x=-262.83,y=212.334,z=92.59},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge12",
 		textureVariation2 = "buzzervert12",
 		textureSlot = "buzzeractuel12",
 	},
 	["buzz13"] = {
-		coords = { x = -263.82669067383, y = 213.13446044922,z = 92.559669494629,h = 303.78552246094},
+		coords = {x=-263.56,y=213.392,z=92.59},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge13",
 		textureVariation2 = "buzzervert13",
 		textureSlot = "buzzeractuel13",
 	},
 	["buzz14"] = {
-		coords = { x = -264.52493286133, y = 214.19100952148,z = 92.559669494629,h = 302.21603393555},
+		coords = {x=-264.246,y=214.432,z=92.59},
 		textureDict = "buzzertexture",
 		textureVariation1 = "buzzerrouge14",
 		textureVariation2 = "buzzervert14",
@@ -195,31 +201,34 @@ Quizz2 = {
 
 Talent = {
 	["Reset"] = {
-		coords = { x = -252.97052001953, y = 220.40798950195, z = 92.087142944336, h = 136.87577819824 },
+		coords = {x=-253.7,y=219.7,z=92.6,h=145.9},
 		textureDict = "buzzertexture",
 		textureVariation1 = "talentbuzzervert1",
 		textureVariation2 = "talentbuzzerrouge1",
 		textureSlot = "buzzertalentactuel1",
 	},
 	["buzz1"] = {
-		coords = { x = -256.90673828125, y = 220.3645324707, z = 91.974891662598, h = 175.35293579102 },
+		coords = {x=-256.822,y=219.825,z=91.792,h=358.9},
 		textureDict = "buzzertexture",
 		textureVariation1 = "talentbuzzervert1",
 		textureVariation2 = "talentbuzzerrouge1",
 		textureSlot = "talentbuzzervert1",
 	},
 	["buzz2"] = {
-		coords = { x = -258.57266235352, y = 220.25704956055, z = 91.974891662598, h = 185.5403137207 },
+		coords = {x=-258.537,y=219.8,z=91.792,h=354.2},
 		textureDict = "buzzertexture",
 		textureVariation1 = "talentbuzzervert1",
 		textureVariation2 = "talentbuzzerrouge1",
 		textureSlot = "talentbuzzervert2",
 	},
 	["buzz3"] = {
-		coords = { x = -260.43688964844, y = 220.32751464844, z = 91.974891662598, h = 176.31385803223 },
+		coords = {x=-260.275,y=219.8155,z=91.792,h=89.6},
 		textureDict = "buzzertexture",
 		textureVariation1 = "talentbuzzervert1",
 		textureVariation2 = "talentbuzzerrouge1",
 		textureSlot = "talentbuzzervert3",
 	},
 }
+
+
+-- If you have any questions --> ChernyyOrel#1074
