@@ -4,6 +4,7 @@
 **A simple ingame map-manager for Patoche studio, optimized by ChernyyWorks. (ChernyyOrel#1074)**
 
 ## Preview
+![image](https://user-images.githubusercontent.com/92865037/211320682-764c0197-fc50-4f8e-909e-90b06bdd4b72.png)
 ![image](https://user-images.githubusercontent.com/92865037/211126992-ed0b6307-6359-4434-99a4-e076bcc186fe.png)
 
 ## Optimization
