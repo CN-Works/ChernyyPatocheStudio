@@ -1,4 +1,4 @@
--- UI-Tool
+-- UI-Tool took from es_extended
 function ShowHelpNotification(msg, thisFrame, beep, duration)
     AddTextEntry("cn_core:helpnotif", msg)
 
@@ -51,6 +51,22 @@ PatocheControlRoom.EnableMouse = false;
 
 -- Very Important | Do not touch this position
 local centerpos = vec(-257.0,216.2,91.8)
+local centerpospoint = lib.points.new(centerpos, 30, {})
+
+function centerpospoint:onEnter()
+    -- Refreshing the scene and buzzer
+	TriggerServerEvent("Studio:AskForEntitySet")
+	TriggerServerEvent("Studio:AskForBuzzer")
+end
+
+-- Just to be sure, don't forget to tell your player about this command !
+RegisterCommand("refreshstudio",function()
+	-- Just to be sure the player is near the studio before doing any server-request.
+	if #(GetEntityCoords(PlayerPedId())-centerpos) < 30 then
+		TriggerServerEvent("Studio:AskForEntitySet")
+		TriggerServerEvent("Studio:AskForBuzzer")
+	end
+end)
 
 if not IsDuplicityVersion() then --(Client Side)
 	interiorID =  GetInteriorAtCoords(centerpos)
@@ -58,7 +74,6 @@ end
 
 local actualinterior = nil
 local InteriorWait = 5000
-local varara = 0
 
 Citizen.CreateThread(function()
 	while true do
@@ -86,7 +101,7 @@ function RageUI.PoolMenus:ControlMenu()
         if #(GetEntityCoords(PlayerPedId())-StudioControlRoom) > 1.3 then
             Items:CloseAllMenu()
         end
-		Items:AddButton(translate["ResetToDefault"], nil, { IsDisabled = false, RightLabel = "" }, function(onSelected)
+		Items:AddButton(translate["DefaultScene"], nil, { IsDisabled = false, RightLabel = "" }, function(onSelected)
 			if (onSelected) then
 				TriggerServerEvent("Studio:ChangeEntitySet", "default")
 			end
@@ -234,6 +249,7 @@ end
 
 
 -- Events (I didn't change anything there, not even the name so feel free to use !)
+
 RegisterNetEvent('Studio:SendEntitySet', function(set)
 	for k,v in pairs(entitySet) do
 		if k==set then
@@ -340,16 +356,6 @@ RegisterNetEvent('Studio:SendResetBuzzer', function()
 		end
 	end
 end)
-
--- Just to be sure, don't forget to tell your player about this command !
-RegisterCommand("refreshstudio",function()
-	-- Just to be sure the player is near the studio before doing any server-request.
-	if #(GetEntityCoords(PlayerPedId())-centerpos) < 30 then
-		TriggerServerEvent("Studio:AskForEntitySet")
-		TriggerServerEvent("Studio:AskForBuzzer")
-	end
-end)
-
 
 
 --RegisterCommand("+PlaySound", function(source, args, fullCommand)

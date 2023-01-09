@@ -7,7 +7,7 @@
     ["ChangeSceneTo"] = "Change la scène en",
     ["PressBuzzer"] = "Appuie sur ~INPUT_CONTEXT~ pour buzzer",
     ["ResetBuzzer"] = "Appuie sur ~INPUT_CONTEXT~ pour réinitialiser le buzzer",
-	["ResetToDefault"] = "Par défaut",
+	["DefaultScene"] = "Vide",
 }]]--
 -- English
 translate = {
@@ -18,7 +18,7 @@ translate = {
     ["ChangeSceneTo"] = "Change to",
     ["PressBuzzer"] = "Press ~INPUT_CONTEXT~ to press the buzzer",
     ["ResetBuzzer"] = "Press ~INPUT_CONTEXT~ to reset the buzzer",
-	["ResetToDefault"] = "Reset",
+	["DefaultScene"] = "Default",
 }
 
 -- r,g,b also see https://colorhunt.co
@@ -33,11 +33,8 @@ marker_color = {
 -- Control room / Menu position
 StudioControlRoom = vec3(-244.4,212.5,92.1)
 
+-- Choose The default scene (ex: jeu7)
 default_studio = "default"
-
--- Studio data :
--- Some positions were edited to fit with in game markers. (Only positions, nothing more)
-
 entitySet = {
 	["jeu1"] = {name = "Talk Show"},
 	["jeu2"] = {name = "Quizz"},
@@ -51,6 +48,7 @@ entitySet = {
 	["jeu10"] = {name = "Big Quizz"},
 }
 
+-- Some positions were edited to fit with in game markers. (Only positions, nothing more)
 Quizz = {
 	["MasterBuzz"] = {
 		coords = {x=-256.9,y=214.319,z=92.467},
