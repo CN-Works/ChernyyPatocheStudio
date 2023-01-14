@@ -59,6 +59,11 @@ function centerpospoint:onEnter()
 	TriggerServerEvent("Studio:AskForBuzzer")
 end
 
+AddEventHandler('playerSpawned', function(spawn)
+	TriggerServerEvent("Studio:AskForEntitySet")
+	TriggerServerEvent("Studio:AskForBuzzer")
+end)
+
 -- Just to be sure, don't forget to tell your player about this command !
 RegisterCommand("refreshstudio",function()
 	-- Just to be sure the player is near the studio before doing any server-request.
@@ -77,7 +82,7 @@ local InteriorWait = 5000
 
 Citizen.CreateThread(function()
 	while true do
-		if #(GetEntityCoords(PlayerPedId())-centerpos) < 25 then
+		if #(GetEntityCoords(PlayerPedId())-centerpos) < 30 then
 			InteriorWait = 1000
 			if IsInteriorEntitySetActive(interiorID, "jeu2") then
 				actualinterior = "jeu2"
