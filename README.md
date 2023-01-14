@@ -8,9 +8,9 @@
 ![image](https://user-images.githubusercontent.com/92865037/211126992-ed0b6307-6359-4434-99a4-e076bcc186fe.png)
 
 ## Optimization
-*Idle :*
+*Outside the markers (Idle) :*
 
-![image](https://user-images.githubusercontent.com/92865037/211127521-96bcdebb-3673-485f-8e95-b8e2cc4a6b8d.png)
+![image](https://user-images.githubusercontent.com/92865037/212493923-bfb7b960-de42-4419-a518-b4397c3e77ab.png)
 
 
 ## Translation
