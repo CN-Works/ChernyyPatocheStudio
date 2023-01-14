@@ -12,6 +12,8 @@
 
 ![image](https://user-images.githubusercontent.com/92865037/212493923-bfb7b960-de42-4419-a518-b4397c3e77ab.png)
 
+## /refreshstudio command !
+*- Execute this command and it will refresh the map in case there's any bug.*
 
 ## Translation
 *- English and French by default, but can be changed in config.lua*
