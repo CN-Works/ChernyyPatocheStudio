@@ -130,7 +130,7 @@ local cr_point = lib.points.new(StudioControlRoom, 4, {})
 function cr_point:nearby()
     Citizen.InvokeNative(0x28477EC23D892089,25, self.coords.x, self.coords.y, self.coords.z-0.96, vec4(0.0, 0.0, 0.0, 0.0), 180.0, 0.0, vec3(1.0, 1.0, 1.0), marker_color.controlroom[1], marker_color.controlroom[2], marker_color.controlroom[3],255, false, true, 2, nil, nil, false)
 
-    if self.currentDistance < 1.3 and not(RageUI.Visible(PatocheControlRoom)) then
+    if self.currentDistance < 1.0 and not(RageUI.Visible(PatocheControlRoom)) then
         ShowHelpNotification(translate["PressToOpenMenu"])
         if IsControlJustReleased(0,51) then
             RageUI.Visible(PatocheControlRoom, not RageUI.Visible(PatocheControlRoom))
