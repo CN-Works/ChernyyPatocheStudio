@@ -1,4 +1,4 @@
-<div align='center'><h1>ChernyyPatocheStudio</h3></div>
+<div align='center'><h1>Chernyy's PatocheStudio</h3></div>
 <br>
 
 **A simple ingame map-manager for Patoche studio, optimized and synced by ChernyyWorks. (ChernyyOrel#1074)**
